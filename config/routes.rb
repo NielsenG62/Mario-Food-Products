@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'albums#index'
   resources :products do
-    resources :reviews, except: [:destroy, :update]
+    resources :reviews
   end
 end
