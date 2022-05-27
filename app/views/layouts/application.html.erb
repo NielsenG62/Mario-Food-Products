@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsMarioFoodStore</title>
+    <title>Mario's Food Store</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <ul>
+        <li><a href="/"><h1>Mario's Food Store</h1></a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </header>
+    <main>
+      <%= flash[:alert]%>
+      <%= flash[:notice]%>
+      <%= yield %>
+    </main>
   </body>
 </html>
