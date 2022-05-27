@@ -6,6 +6,17 @@ class Product < ApplicationRecord
   validates :country_of_origin, presence: true
   before_save(:titleize_product)
 
+  scope :USA, -> { where(country_of_origin: 'USA')}
+  scope :three_most_recent, -> { order(created_at: :desc).limit (3) }
+  scope :most_reviews, -> {(
+    select("products.id, products.name count(reviews.id) as reviews_count")
+    .joins(:reviews)
+    .group("products.name")
+    .order("reviews_count DESC")
+    .limit(1)
+    )}
+
+
   private
     def titleize_product
       self.name = self.name.titleize

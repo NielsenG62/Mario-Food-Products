@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
     render :index
   end
 
+  def all
+    @products = Product.all
+    render :all
+  end
+
   def new
     @product = Product.new
     render :new

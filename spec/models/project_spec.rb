@@ -11,9 +11,15 @@ describe Product do
     product = Product.create({name: 'avocado', cost: 1, country_of_origin: 'Mexico'})
     expect(product.name).to(eq('Avocado'))
   end
-  
+
   it 'titleizes the country_of_origin of a product' do
     product = Product.create({name: 'avocado', cost: 1, country_of_origin: 'mexico'})
     expect(product.country_of_origin).to(eq('Mexico'))
+  end
+
+  it 'returns all products with origin of USA' do
+    product1 = Product.create({name: 'avocado', cost: 1, country_of_origin: 'USA'})
+    product2 = Product.create({name: 'pizza', cost: 1, country_of_origin: 'Mexico'})
+    expect(Product.where)
   end
 end
