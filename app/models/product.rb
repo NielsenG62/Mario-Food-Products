@@ -4,4 +4,11 @@ class Product < ApplicationRecord
   validates :cost, presence: true
   validates :cost, numericality: { greater_than_or_equal_to: 0}
   validates :country_of_origin, presence: true
+  before_save(:titleize_product)
+
+  private
+    def titleize_product
+      self.name = self.name.titleize
+      self.country_of_origin = self.country_of_origin.titleize
+    end
 end
