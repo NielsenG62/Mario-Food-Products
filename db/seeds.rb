@@ -9,9 +9,15 @@
 Product.destroy_all
 
 50.times do |index|
+  x = rand(5)
+  if x == 1
+    country = 'USA'
+  else
+    country = (Faker::Address.country_code_long)
+  end
   Product.create!(name: Faker::Food.ingredient,
                     cost: Faker::Number.between(from: 1, to: 25),
-                    country_of_origin: Faker::Address.country_code_long)
+                    country_of_origin: country)
 end
 
 250.times do |index|
