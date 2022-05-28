@@ -1,7 +1,7 @@
-<h1>All Products</h1>
+<h2 id='all-header'>All Products</h2>
 
 <% if @products.any? %>
-  <ul>
+  <ul id = 'all'>
     <% @products.each do |product| %>
       <li><%= link_to product.name, product_path(product) %></li>
     <% end %>
@@ -11,4 +11,3 @@
 <% end %>
 
 
-<p><%= link_to "Create new product", new_product_path %></p>

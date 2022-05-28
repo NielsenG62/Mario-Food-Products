@@ -1,2 +1,81 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  background-color: #606c38;
+}
+
+.container {
+  background-color: #fefae0;
+  padding: 2em;
+}
+
+header {
+  background-color: #dda15e;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+header a {
+  color: black;
+}
+
+header a:hover {
+  color: rgb(115, 115, 115);
+  text-decoration: none;
+}
+
+#intro {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+#scopes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#all {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#all li {
+  margin: 15px;
+}
+
+#all-header {
+  text-align: center;
+}
+
+.top-info {
+  text-align: center;
+}
+
+#reviews-list li {
+  margin-bottom: 2em;
+}
+
+#review-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom-settings p {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+}
+
+.bottom-settings a {
+  color: black;
+}
