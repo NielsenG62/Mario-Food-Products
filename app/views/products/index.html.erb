@@ -6,7 +6,7 @@
 <div class='scope-list'>
   <h3>Most Popular</h3>
   <ul>
-    <%= @products.most_reviews.each do |product| %>
+    <% @products.most_reviews.each do |product| %>
       <li><%= link_to product.name, product_path(product) %></li>
     <% end %>
   </ul>
@@ -15,7 +15,7 @@
 <div class='scope-list'>
   <h3>Recently Added</h3>
   <ul>
-    <%= @products.three_most_recent.each do |product| %>
+    <% @products.three_most_recent.each do |product| %>
       <li><%= link_to product.name, product_path(product) %></li>
     <% end %>
   </ul>
@@ -24,11 +24,8 @@
 <div class='scope-list'>
   <h3>Local Products</h3>
   <ul>
-    <%= @products.usa.each do |product| %>
+    <% @products.usa.each do |product| %>
       <li><%= link_to product.name, product_path(product) %></li>
     <% end %>
   </ul>
 </div>
-
-
-<p><%= link_to "Create new product", new_product_path %></p>
