@@ -22,4 +22,12 @@ describe Product do
     product2 = Product.create({name: 'pizza', cost: 1, country_of_origin: 'Mexico'})
     expect(Product.usa).to (eq([product1]))
   end
+
+  it 'returns three most recent products added' do
+    product1 = Product.create({name: 'avocado', cost: 1, country_of_origin: 'Usa'})
+    product2 = Product.create({name: 'pizza', cost: 1, country_of_origin: 'Mexico'})
+    product3 = Product.create({name: 'flour', cost: 1, country_of_origin: 'Usa'})
+    product4 = Product.create({name: 'tomato', cost: 1, country_of_origin: 'Mexico'})
+    expect(Product.three_most_recent).to (eq([product4, product3, product2]))
+  end
 end
