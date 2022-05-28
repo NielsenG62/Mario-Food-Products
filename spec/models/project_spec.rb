@@ -18,8 +18,8 @@ describe Product do
   end
 
   it 'returns all products with origin of USA' do
-    product1 = Product.create({name: 'avocado', cost: 1, country_of_origin: 'USA'})
+    product1 = Product.create({name: 'avocado', cost: 1, country_of_origin: 'Usa'})
     product2 = Product.create({name: 'pizza', cost: 1, country_of_origin: 'Mexico'})
-    expect(Product.where)
+    expect(Product.usa).to (eq([product1]))
   end
 end

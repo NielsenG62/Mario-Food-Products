@@ -6,7 +6,9 @@
 <div class='scope-list'>
   <h3>Most Popular</h3>
   <ul>
- 
+    <%= @products.most_reviews.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
   </ul>
 </div>
 
