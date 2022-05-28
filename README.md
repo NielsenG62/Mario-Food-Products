@@ -31,7 +31,7 @@ _This is a Ruby on Rails project that stores products and reviews in a database.
 
 ## Known Bugs
 
-- _None that I know of as of this commit_
+- _CSS is not finished in a couple of views_
 
 ## License
 
