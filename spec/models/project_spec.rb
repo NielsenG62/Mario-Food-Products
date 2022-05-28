@@ -30,4 +30,11 @@ describe Product do
     product4 = Product.create({name: 'tomato', cost: 1, country_of_origin: 'Mexico'})
     expect(Product.three_most_recent).to (eq([product4, product3, product2]))
   end
+
+  it 'find the product with the most reviews' do
+    product = Product.create({name: 'avocado', cost: 1, country_of_origin: 'Mexico'})
+    product2 = Product.create({name: 'pizza', cost: 1, country_of_origin: 'Mexico'})
+    review = Review.create({product_id: product.id, author: 'gabe', rating: 5, content_body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'})
+    expect(Product.most_reviews).to(eq([product]))
+  end
 end
