@@ -16,7 +16,7 @@
 
 ## Description
 
-_This is a Ruby on Rails project that stores products and reviews in a database. The user is able to add, update, or delete projects from the database. The database is seeded with 50 products and 250 reviews. The home page gives a snapshot at the products, showing the most reviewed product, the most recently added, and the products that originate in the USA._
+_This is a Ruby on Rails project that stores products and reviews in a database. The user is able to add, update, or delete projects from the database. The database is seeded with 50 products and 250 reviews, distributed randomly across the products. The home page gives a snapshot at the products, showing the most reviewed product, the most recently added, and the products that originate in the USA._
 
 ## Setup/Installation Requirements
 
