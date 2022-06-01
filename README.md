@@ -29,7 +29,7 @@ _This is a Ruby on Rails project that stores products and reviews in a database.
 - _Run `rails s`_
 - _In your web browser of choice, enter `localhost:3000`_
 
-## Known Bugs
+## Known Issues
 
 - _CSS is not finished in a couple of views_
 
