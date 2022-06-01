@@ -32,6 +32,8 @@ _This is a Ruby on Rails project that stores products and reviews in a database.
 ## Known Issues
 
 - _CSS is not finished in a couple of views_
+- _The buttons on the products have a smaller click box than what's visible_
+- _'Return to products' button will not respond to bootstrap_
 
 ## License
 
