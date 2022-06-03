@@ -15,18 +15,15 @@ class Product < ApplicationRecord
     .order("reviews_count DESC")
     .limit(1)
     )}
-  scope :top_rated -> {(
-    select("products.id, products.name, average_rating(product) as average_rating")
-    .joins(:reviews)
-    .group("products.id")
-    .order("average_rating DESC")
-    .limit(5)
-    )}
 
-  def average_rating(product)
+  def self.top_five
+    Product.all.sort_by {|product| product.reviews.average(:rating)}.last(5).reverse
+  end
+
+  def average_rating
     average = 0
     count = 0
-    product.reviews.each do |review|
+    self.reviews.each do |review|
       average += review.rating
       count += 1
     end
