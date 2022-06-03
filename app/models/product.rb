@@ -16,6 +16,14 @@ class Product < ApplicationRecord
     .limit(1)
     )}
 
+  def self.average_rating 
+    average = 0
+    @product.reviews.each do |review|
+      average += review.rating
+    end
+    average / 
+  end
+
   private
     def titleize_product
       self.name = self.name.titleize
