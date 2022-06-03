@@ -28,12 +28,17 @@ _This is a Ruby on Rails project that stores products and reviews in a database.
 - _If you would like to see the test results, run `rspec`_
 - _Run `rails s`_
 - _In your web browser of choice, enter `localhost:3000`_
+- _Create an account. The default state is `admin: false`_
+
+## To turn an account into an admin
+
+- _In the root directory, open the rails console with `rails c`_
+- _`User.where(email: "*email_of_desired_admin*").update(admin: true)`_
+- _To double check admin status: `User.where(email: "*email_of_desired_admin*").first.admin?`_
 
 ## Known Issues
 
 - _CSS is not finished in a couple of views_
-- _The buttons on the products have a smaller click box than what's visible_
-- _'Return to products' button will not respond to bootstrap_
 
 ## License
 
