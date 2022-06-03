@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'products#index'
+  get '/index' => 'home#index'
+  root to: 'home#index'
   resources :products do
     resources :reviews
     collection do
