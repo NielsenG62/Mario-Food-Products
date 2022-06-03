@@ -16,12 +16,14 @@ class Product < ApplicationRecord
     .limit(1)
     )}
 
-  def self.average_rating 
+  def average_rating(product)
     average = 0
-    @product.reviews.each do |review|
+    count = 0
+    product.reviews.each do |review|
       average += review.rating
+      count += 1
     end
-    average / 
+    (average / count.to_f).round(2)
   end
 
   private
