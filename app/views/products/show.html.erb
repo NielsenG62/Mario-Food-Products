@@ -20,12 +20,13 @@
   <% end %>
   
   <div class = 'bottom-settings'>
-    <p class='btn btn-success'><%= link_to "Add a review", new_product_review_path(@product) %></p>
-    <p class='btn btn-warning'><%= link_to "Edit", edit_product_path(@product) %></p>
-    <p class='btn btn-danger'><%= link_to "Delete product", product_path(@product),
-                            :data => {:confirm => "Are you sure?",
-                                           :method => "delete"} %></p>
-    
-    <p class='btn btn-secondary'><%= link_to "Return to products", products_path %></p>
+  <% if current_user && current_user.admin? %>
+    <%= button_to "Add a review", new_product_review_path(@product), class: 'btn btn-success' %>
+    <%= button_to "Edit", edit_product_path(@product), class: 'btn btn-warning' %>
+    <%= button_to "Delete product", product_path(@product), class: 'btn btn-danger',
+                                    :data => {:confirm => "Are you sure?",
+                                                  :method => "delete"} %>
+  <% end %>
+    <%= button_to "Return to products", products_path, class: 'btn btn-secondary' %>
   </div>
 </div>
