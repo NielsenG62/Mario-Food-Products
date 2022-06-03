@@ -2,8 +2,29 @@
 
 <div id = 'form'>
   <%= form_for [@product, @review] do |f| %>
-    <%= f.label :rating %>
-    <%= f.text_field :rating %>
+    <div id = 'rating'>
+      <%= f.label :rating %><br />
+      <div class = 'stars'>
+        <%= f.label :rating, "1", :value => "1"  %>
+        <%= f.radio_button :rating, 1 %>
+      </div>
+      <div class = 'stars'>
+        <%= f.label :rating, "2", :value => "2" %>
+        <%= f.radio_button :rating, 2 %>
+      </div>
+      <div class = 'stars'>
+        <%= f.label :rating, "3", :value => "3"  %>
+        <%= f.radio_button :rating, 3 %>
+      </div>
+      <div class = 'stars'>
+        <%= f.label :rating, "4", :value => "4" %>
+        <%= f.radio_button :rating, 4 %>
+      </div>
+      <div class = 'stars'>
+        <%= f.label :rating, "5", :value => "5"  %>
+        <%= f.radio_button :rating, 5 %>
+      </div>
+    </div>
     <%= f.label :author %>
     <%= f.text_field :author %>
     <%= f.label :content_body %>
