@@ -1,14 +1,17 @@
-<h1>Product: <%= @product.name %></h1>
-
-<h2>Review: <%= @review.author %>, <%= @review.rating %></h2>
-<h3><%= @review.content_body %></h3>
-
-<% if current_user && current_user.admin? %>
-<%= button_to "Edit review", edit_product_review_path(@product, @review), class: "btn btn-warning" %>
-<%= button_to "Delete review", product_review_path(@product, @review), class: "btn btn-danger",
-                        :method => :delete,
-                        :data => {:confirm => "Are you sure?",
-                                      :method => "delete"} %>
-<% end %>
-
-<%= button_to "Return to product", product_path(@product), class: "btn btn-primary", :method => :get %>
+<div class = 'center'>
+  <h2>Product: <%= @product.name %></h2>
+  
+  <h3>Review: <%= @review.author %>, <%= @review.rating %></h3>
+  <p id = 'review-page'><%= @review.content_body %></p>
+  
+  <div id = 'button-flex'>
+    <%= button_to "Return to product", product_path(@product), class: "btn btn-primary", :method => :get %>
+    <% if current_user && current_user.admin? %>
+    <%= button_to "Edit review", edit_product_review_path(@product, @review), class: "btn btn-warning" %>
+    <%= button_to "Delete review", product_review_path(@product, @review), class: "btn btn-danger",
+                            :method => :delete,
+                            :data => {:confirm => "Are you sure?",
+                                          :method => "delete"} %>
+    <% end %>
+  </div>
+</div>
