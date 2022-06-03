@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    render :index
+    redirect_to index_path
   end
 
   def all

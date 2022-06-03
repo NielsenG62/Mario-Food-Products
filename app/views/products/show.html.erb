@@ -5,28 +5,29 @@
   
 </div>
 
-<%= button_to "Return to products", products_path, class: 'btn btn-primary', :method => :get %>
-<%= button_to "Add a review", new_product_review_path(@product), class: 'btn btn-success' %>
-<% if @product.reviews.any? %>
-<h2>Reviews:</h2>
-<div id='review-wrap'>
-<ul id='reviews-list'>
-  <% @product.reviews.each do |review| %>
-    <li>
-      <h4><%= link_to "#{review.author}: #{review.rating}", product_review_path(@product, review)%></h4>
-      <p><%= review.content_body %></p>
-    </li>
-  <% end %>
-  </ul>
-<% end %>
-
 <div class = 'bottom-settings'>
+<%= button_to "Return to products", products_path, class: 'btn btn-primary top-button', :method => :get %>
+<%= button_to "Add a review", new_product_review_path(@product), class: 'btn btn-success top-button',
+                                  :method => :get %>
 <% if current_user && current_user.admin? %>
-  <%= button_to "Edit Product", edit_product_path(@product), class: 'btn btn-warning' %>
+  <%= button_to "Edit Product", edit_product_path(@product), class: 'btn btn-warning', :method => :get%>
   <%= button_to "Delete Product", product_path(@product), class: 'btn btn-danger', 
                                   :method => :delete,
                                   :data => {:confirm => "Are you sure?",
                                                 :method => "delete"} %>
 <% end %>
 </div>
+
+<% if @product.reviews.any? %>
+<h2>Reviews:</h2>
+<div id='review-wrap'>
+  <ul id='reviews-list'>
+    <% @product.reviews.each do |review| %>
+      <li>
+        <h4><%= link_to "#{review.author}: #{review.rating}", product_review_path(@product, review)%></h4>
+        <p><%= review.content_body %></p>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
 </div>
