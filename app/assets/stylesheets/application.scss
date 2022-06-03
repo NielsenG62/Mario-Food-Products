@@ -89,3 +89,9 @@ header a:hover {
 .bottom-settings a {
   color: black;
 }
+
+#form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

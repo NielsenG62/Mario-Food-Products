@@ -41,6 +41,8 @@ gem 'sassc-rails', '>= 2.1.0'
 gem 'autoprefixer-rails'
 gem 'faker'
 gem 'devise'
+gem "devise-i18n"
+gem "devise-bootstrap5"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
