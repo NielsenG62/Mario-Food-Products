@@ -16,7 +16,7 @@
   <div class='scope-list'>
     <h3>Top Rated</h3>
     <ul>
-      <% Product.top_five.each do |product| %>
+      <% @products.top_five.each do |product| %>
         <li><%= link_to product.name, product_path(product) %></li>
       <% end %>
     </ul>

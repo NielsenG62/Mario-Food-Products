@@ -16,7 +16,7 @@
 
 ## Description
 
-_This is a Ruby on Rails project that stores products and reviews in a database. The user is able to add, update, or delete projects from the database. The database is seeded with 50 products and 250 reviews, distributed randomly across the products. The home page gives a snapshot at the products, showing the most reviewed product, the most recently added, and the products that originate in the USA._
+_This is a Ruby on Rails project that stores products and reviews in a database. The user is able to add, update, or delete projects from the database. The database is seeded with 50 products and 250 reviews, distributed randomly across the products. The home page gives a snapshot at the products, showing the most reviewed product, the most recently added, and the products that originate in the USA. A user that is not signed in can only see the homepage. Signed in users can view products and write reviews, while admins can update and delete reviews, and add, update, and delete products._
 
 ## Setup/Installation Requirements
 
@@ -38,7 +38,7 @@ _This is a Ruby on Rails project that stores products and reviews in a database.
 
 ## Known Issues
 
-- _CSS is not finished in a couple of views_
+- _top_five scope is not working_
 
 ## License
 
