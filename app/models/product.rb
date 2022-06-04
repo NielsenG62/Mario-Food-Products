@@ -16,11 +16,7 @@ class Product < ApplicationRecord
     .limit(1)
     )}
   
-  scope :top_five, -> { where('products.id in ')}
-
-  # def self.top_five
-  #   Product.all.sort_by {|product| product.reviews.average(:rating)}.last(5).reverse
-  # end
+  scope :top_five, -> { Product.all.sort_by {|product| product.reviews.average(:rating) || 0}.last(5).reverse }
 
   def average_rating
     average = 0
