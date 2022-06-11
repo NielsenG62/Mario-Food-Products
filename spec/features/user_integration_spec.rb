@@ -12,11 +12,6 @@ describe 'the add user process' do
   end
 end
 
-# before(:each) do
-#   product = Product.create!(name: 'Test product', cost: 10, country_of_origin: Usa)
-#   Review.create!(author: 'Computer', rating: 5, content_body: 'Reprehenderit deleniti sapiente. Consequuntur occaecati quam. Sint non qui. Est ipsa ut. Officiis q.', product_id: product.id)
-# end
-
 describe 'user routes' do
   before(:each) do
     product = Product.create!(name: 'Test Product', cost: 10, country_of_origin: 'Usa')
@@ -28,6 +23,7 @@ describe 'user routes' do
     fill_in('user_password_confirmation', :with => 'test123')
     click_button('Sign up')
   end
+
   it 'has a user create a review' do
     first(:link, 'Test Product').click
     click_button('Add a review')
@@ -38,5 +34,26 @@ describe 'user routes' do
     expect(page).to have_content('Review successfully added!')
   end
 
-  it 'has a user'
+  it 'will not let a user create a new product' do
+    visit '/products/new'
+    expect(page).to have_content('You are not authorized for that action')
+  end
+end
+
+describe 'admin routes' do
+  before(:each) do
+    product = Product.create!(name: 'Test Product', cost: 10, country_of_origin: 'Usa')
+    Review.create!(author: 'Computer', rating: 5, content_body: 'Reprehenderit deleniti sapiente. Consequuntur occaecati quam. Sint non qui. Est ipsa ut. Officiis q.', product_id: product.id)
+    visit '/'
+    click_on('Sign up')
+    fill_in('user_email', :with => 'capybara@test.com')
+    fill_in('user_password', :with => 'test123')
+    fill_in('user_password_confirmation', :with => 'test123')
+    click_button('Sign up')
+    User.where(email: 'capybara@test.com').update(admin: true)
+  end
+
+  it 'has an admin create a product' do
+    
+  end
 end

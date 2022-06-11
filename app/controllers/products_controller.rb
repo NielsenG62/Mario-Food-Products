@@ -1,8 +1,11 @@
 class ProductsController < ApplicationController
 
   skip_before_action :authenticate_user!, :only => [:index]
-  before_action :only => [:create, :edit, :update, :destroy] do
-    redirect_to root_path unless current_user && current_user.admin?
+  before_action :only => [:new, :create, :edit, :update, :destroy] do
+    unless current_user && current_user.admin?
+      flash[:notice] = "You are not authorized for that action"
+      redirect_to root_path 
+    end
   end
 
   def index

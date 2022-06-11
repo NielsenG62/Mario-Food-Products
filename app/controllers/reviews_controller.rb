@@ -1,8 +1,11 @@
 class ReviewsController < ApplicationController
 
   # before_action :authenticate_user!, :except => [:show, :root]
-  before_action :only => [:new, :edit, :update, :destroy] do
-    redirect_to product_path unless current_user && current_user.admin?
+  before_action :only => [:edit, :update, :destroy] do
+    unless current_user && current_user.admin?
+      flash[:notice] = "You are not authorized for that action"
+      redirect_to product_path 
+    end
   end
 
   def new 
