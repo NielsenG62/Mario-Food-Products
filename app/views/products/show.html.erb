@@ -8,7 +8,7 @@
 <div class = 'bottom-settings'>
 <%= button_to "Return to products", products_path, class: 'btn btn-primary top-button', :method => :get %>
 <%= button_to "Add a review", new_product_review_path(@product), class: 'btn btn-success top-button',
-                                  :method => :get %>
+                                  :method => :get, id: 'add_review' %>
 <% if current_user && current_user.admin? %>
   <%= button_to "Edit Product", edit_product_path(@product), class: 'btn btn-warning', :method => :get%>
   <%= button_to "Delete Product", product_path(@product), class: 'btn btn-danger', 

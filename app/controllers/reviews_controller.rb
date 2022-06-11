@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   # before_action :authenticate_user!, :except => [:show, :root]
-  before_action :only => [:edit, :update, :destroy] do
+  before_action :only => [:new, :edit, :update, :destroy] do
     redirect_to product_path unless current_user && current_user.admin?
   end
 
