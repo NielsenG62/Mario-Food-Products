@@ -7,7 +7,7 @@
   <div id = 'button-flex'>
     <%= button_to "Return to product", product_path(@product), class: "btn btn-primary", :method => :get %>
     <% if current_user && current_user.admin? %>
-    <%= button_to "Edit review", edit_product_review_path(@product, @review), class: "btn btn-warning" %>
+    <%= button_to "Edit review", edit_product_review_path(@product, @review), class: "btn btn-warning", method: :get %>
     <%= button_to "Delete review", product_review_path(@product, @review), class: "btn btn-danger",
                             :method => :delete,
                             :data => {:confirm => "Are you sure?",
