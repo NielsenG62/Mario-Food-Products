@@ -9,9 +9,7 @@
     <% if current_user && current_user.admin? %>
     <%= button_to "Edit review", edit_product_review_path(@product, @review), class: "btn btn-warning", method: :get %>
     <%= button_to "Delete review", product_review_path(@product, @review), class: "btn btn-danger",
-                            :method => :delete,
-                            :data => {:confirm => "Are you sure?",
-                                          :method => "delete"} %>
+                            :method => :delete %>
     <% end %>
   </div>
 </div>

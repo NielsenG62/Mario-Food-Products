@@ -79,4 +79,30 @@ describe 'admin routes' do
     click_button('Delete Product')
     expect(page). to have_no_content('Test Product')
   end
+
+  it 'has an admin create a review' do
+    first(:link, 'Test Product').click
+    click_button('Add a review')
+    choose('5')
+    fill_in('review_author', :with => 'Capybara')
+    fill_in('review_content_body', :with => 'Reprehenderit deleniti sapiente. Consequuntur occaecati quam. Sint non qui. Est ipsa ut. Officiis q.')
+    click_button('Create Review')
+    expect(page).to have_content('Review successfully added!')
+  end
+
+  it 'has an admin update a review' do
+    first(:link, 'Test Product').click
+    click_on('Computer: 5')
+    click_button('Edit review')
+    choose('1')
+    click_button('Update Review')
+    expect(page).to have_content('Review successfully updated!')
+  end
+
+  it 'has an admin delete a review' do
+    first(:link, 'Test Product').click
+    click_on('Computer: 5')
+    click_button('Delete review')
+    expect(page).to have_no_content('Test Product: 5')
+  end
 end
