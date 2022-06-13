@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 describe 'the add user process' do
   it 'adds a new user' do
     visit '/'
@@ -51,9 +52,31 @@ describe 'admin routes' do
     fill_in('user_password_confirmation', :with => 'test123')
     click_button('Sign up')
     User.where(email: 'capybara@test.com').update(admin: true)
+    visit '/'
   end
 
   it 'has an admin create a product' do
-    
+    click_on('Add new product')
+    fill_in('product_name', :with => 'Test Product')
+    fill_in('product_cost', :with => 10)
+    fill_in('product_country_of_origin', :with => 'Usa')
+    click_button('Create Product')
+    expect(page). to have_content('Product successfully added!')
+  end
+
+  it 'has an admin update a product' do
+    first(:link, 'Test Product').click
+    click_button('Edit Product')
+    fill_in('product_name', :with => 'Test Update')
+    fill_in('product_cost', :with => 5)
+    fill_in('product_country_of_origin', :with => 'Fra')
+    click_on('Update Product')
+    expect(page). to have_content('Product successfully updated!')
+  end
+
+  it 'has an admin delete a product' do
+    first(:link, 'Test Product').click
+    click_button('Delete Product')
+    expect(page). to have_no_content('Test Product')
   end
 end

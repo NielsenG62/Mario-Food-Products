@@ -12,9 +12,7 @@
 <% if current_user && current_user.admin? %>
   <%= button_to "Edit Product", edit_product_path(@product), class: 'btn btn-warning', :method => :get%>
   <%= button_to "Delete Product", product_path(@product), class: 'btn btn-danger', 
-                                  :method => :delete,
-                                  :data => {:confirm => "Are you sure?",
-                                                :method => "delete"} %>
+                                  :method => :delete %>
 <% end %>
 </div>
 
