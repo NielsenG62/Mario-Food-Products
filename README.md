@@ -38,7 +38,7 @@ _This is a Ruby on Rails project that stores products and reviews in a database.
 
 ## Known Issues
 
-- _top_five scope is not working_
+- _None that I am aware of in this commit_
 
 ## License
 
