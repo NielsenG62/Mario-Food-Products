@@ -43,6 +43,9 @@ gem 'faker'
 gem 'devise'
 gem "devise-i18n"
 gem "devise-bootstrap5"
+gem 'react_on_rails'
+gem 'webpacker'
+gem 'mini_racer'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
